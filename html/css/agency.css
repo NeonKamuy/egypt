@@ -842,8 +842,6 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 @media(max-width: 430px){
   .announce_annotation { width: 85%; }
 }
-/*******  Slick carousel elements (hide all but first) *****/
-.carousel_anounce_wrap#slick2{ display: none; }
 
 /******   Speech bubble   ******/
 .speech-bubble-left {

@@ -82,8 +82,3 @@ function show_navbar(button){
   document.getElementById(navbar_buttons[button].id).style.display = 'block';
 }
 /*******************************/
-window.addEventListener('load', slick_init);
-function slick_init(){
-  console.log('Starting slick carousel initialisation...');
-  
-}
