@@ -699,6 +699,11 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
     margin-left: 0px;
     margin-right: 0px;
   }
+
+  .speech-bubble-row {
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden; }
 }
 
 /******* Navigation  *************/
@@ -821,7 +826,6 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   #main_carousel{ display: block !important; }
 }
 @media(max-width: 530px){
-  .container { max-width: 100vw !important; }
   #anounces_row { height: 400px; }
   .announce_annotation{
     height: 380px;
