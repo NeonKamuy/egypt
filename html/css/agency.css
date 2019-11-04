@@ -745,16 +745,16 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 
 
 /*******  Anounce banners  *******/
-#anounces{
-  max-width: 90vw;
-}
-#anounces_row {
-  height: 500px;
-}
-#anounces_row .col{
-  width: 100%;
+#anounces{ max-width: 90vw; }
+#anounces_row { height: 500px; }
+#anounces_row .col{ height: 100%; }
+
+.static_anounce_wrap, .carousel_anounce_wrap{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 95%;
   height: 100%;
-  margin: 0 1rem;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -766,7 +766,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   padding-right: 0.4rem;
   font-family: 'Circe 35';
   position: absolute;
-  width: 70%;
+  width: 80%;
   height: 450px;
   left: 5%;
   bottom: 5%;
@@ -808,16 +808,20 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   padding: 0.5rem 0.8rem;
   display: block;
 }
+
 @media(max-width: 1400px){
   #anounces_row { height: 400px; }
   .annotation_description {font-size: 1.2rem; }
   .announce_annotation{
+    width: 85%;
     height: 380px;
     top: 2%;
   }
-  .annotation_title { font-size: 1.3rem; top: 38%; }
-  .annotation_time { font-size: 1.4rem; top: 28%; }
+  .annotation_title { font-size: 1.25rem; top: 38%; }
+  .annotation_time { font-size: 1.3rem; top: 28%; }
+  .annotation_button { font-size: 1.1rem; bottom: 7%; }
 }
+
 @media(max-width: 1080px){
   .annotation_description {font-size: 1.2rem; }
   .annotation_title { font-size: 1.5rem; top: 35%; }
@@ -825,6 +829,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   #anounces_row > .col{ display: none;  }
   #main_carousel{ display: block !important; }
 }
+
 @media(max-width: 530px){
   #anounces_row { height: 400px; }
   .announce_annotation{
@@ -837,6 +842,9 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 @media(max-width: 430px){
   .announce_annotation { width: 85%; }
 }
+/*******  Slick carousel elements (hide all but first) *****/
+.carousel_anounce_wrap#slick2{ display: none; }
+
 /******   Speech bubble   ******/
 .speech-bubble-left {
   padding: 0.8rem;
