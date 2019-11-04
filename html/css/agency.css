@@ -809,6 +809,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   display: block;
 }
 
+/*
 .carousel_anounce_wrap > .announce_annotation{
   width: 85%;
   left: 7.5%;
@@ -822,6 +823,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 }
 .prev_slide{ left: 1.3%; }
 .next_slide{ right: 1.3%; }
+*/
 
 @media(max-width: 1400px){
   #anounces_row { height: 400px; }
