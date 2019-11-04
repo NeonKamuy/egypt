@@ -809,6 +809,20 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   display: block;
 }
 
+.carousel_anounce_wrap > .announce_annotation{
+  width: 85%;
+  left: 7.5%;
+}
+
+.prev_slide, .next_slide{
+  position: absolute;
+  font-size: 2.8rem;
+  color: white !important;
+  top: 40%;
+}
+.prev_slide{ left: 1.3%; }
+.next_slide{ right: 1.3%; }
+
 @media(max-width: 1400px){
   #anounces_row { height: 400px; }
   .annotation_description {font-size: 1.2rem; }
