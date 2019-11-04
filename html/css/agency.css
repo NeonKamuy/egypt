@@ -747,7 +747,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 /*******  Anounce banners  *******/
 #anounces{ max-width: 90vw; }
 #anounces_row { height: 500px; }
-#anounces_row .col{ height: 100%; }
+#anounces_row .col{ height: 100%; overflow: hidden; }
 
 .static_anounce_wrap, .carousel_anounce_wrap{
   position: absolute;
@@ -842,7 +842,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 @media(max-width: 430px){
   .announce_annotation { width: 85%; }
 }
-
+/******** Anounce Carousel  ***********/
 /******   Speech bubble   ******/
 .speech-bubble-left {
   padding: 0.8rem;
