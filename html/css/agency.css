@@ -720,10 +720,11 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   right: 15px;
   z-index: 1200;
 }
-.pyramid_navbar_mob{
-  display:none;
+.pyramid_navbar_mob{ display:none; }
+.pyramid_nav_subdropdown{
+  display: none;
   margin-left:5%;
-  font-size:0.8rem
+  font-size:0.8rem;
 }
 @media(min-width:993px){    /* скрываем навигационные элементы пирамидки при -md */
   #pyramid_navbar_mob { display: none !important; }
