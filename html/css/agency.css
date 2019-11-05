@@ -759,7 +759,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   background-repeat: no-repeat;
 }
 
-.announce_annotation{
+.anounce_annotation{
   color: white;
   text-align: left;
   padding-left: 0.8rem;
@@ -808,27 +808,19 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   padding: 0.5rem 0.8rem;
   display: block;
 }
-
-/*
-.carousel_anounce_wrap > .announce_annotation{
-  width: 85%;
-  left: 7.5%;
+.annotation_button:hover{
+  background-color: white;
+  color: #212529 !important;
 }
-
-.prev_slide, .next_slide{
-  position: absolute;
-  font-size: 2.8rem;
+.annotation_button:active{
+  background-color: #212529 !important;
   color: white !important;
-  top: 40%;
 }
-.prev_slide{ left: 1.3%; }
-.next_slide{ right: 1.3%; }
-*/
 
 @media(max-width: 1400px){
   #anounces_row { height: 400px; }
   .annotation_description {font-size: 1.2rem; }
-  .announce_annotation{
+  .anounce_annotation{
     width: 85%;
     height: 380px;
     top: 2%;
@@ -848,7 +840,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 
 @media(max-width: 530px){
   #anounces_row { height: 400px; }
-  .announce_annotation{
+  .anounce_annotation{
     height: 380px;
     top: 2%;
   }
@@ -856,7 +848,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   .annotation_time { font-size: 1.4rem; }
 }
 @media(max-width: 430px){
-  .announce_annotation { width: 85%; }
+  .anounce_annotation { width: 85%; }
 }
 /******** Anounce Carousel  ***********/
 /***************************************/
