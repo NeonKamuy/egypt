@@ -32,6 +32,7 @@ var carousel = {
     var elem_offset = 0;
     for(i=0; i!=carousel.length; ++i){
       carousel.elems[i].style.left = elem_offset + 'px';
+      carousel.elems[i].style.display = 'block';
       elem_offset += carousel.width;
     }
 
@@ -118,7 +119,6 @@ var carousel = {
       var temp_offset = carousel.offset.first;
       for(i=0; i!=carousel.length; ++i){
         carousel.elems[i].style.left = temp_offset + 'px';
-        carousel.elems[i].style.display = 'block';
         temp_offset += carousel.width;
       }
     }
