@@ -81,7 +81,7 @@ var carousel = {
 
   'onmousedown' : function(e){
     carousel.mousedown = true;
-    if(typeof(e.touches[0].clientX) != 'undefined') carousel.mouseStart = e.touches[0].clientX;
+    if(typeof(e.touches) != 'undefined') carousel.mouseStart = e.touches[0].clientX;
     else carousel.mouseStart = e.clientX;
     window.addEventListener('mouseup', carousel.onmouseup, { 'once':true });
     window.addEventListener('mousemove', carousel.onmousemove);
@@ -91,7 +91,7 @@ var carousel = {
   },
 
   'onmousemove' : function(e){
-      if(typeof(e.touches[0].clientX) != 'undefined') carousel.offset.curr = carousel.mouseStart - e.touches[0].clientX;
+      if(typeof(e.touches) != 'undefined') carousel.offset.curr = carousel.mouseStart - e.touches[0].clientX;
       else carousel.offset.curr = (carousel.mouseStart - e.clientX);
 
       if(carousel.offset.curr > 0){
