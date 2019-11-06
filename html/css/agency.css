@@ -748,17 +748,17 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 }
 
 
-/*******  Anounce banners  *******/
-#anounces{
+/*******  announce banners  *******/
+#announces{
   max-width: 90vw;
   cursor: default;
   user-select: none;
 }
 
-#anounces_row { height: 500px; }
-#anounces_row .col{ height: 100%; overflow: hidden; }
+#announces_row { height: 500px; }
+#announces_row .col{ height: 100%; overflow: hidden; }
 
-.static_anounce_wrap, .carousel_anounce_wrap{
+.static_announce_wrap, .carousel_announce_wrap{
   position: absolute;
   top: 0;
   left: 0;
@@ -767,9 +767,9 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   background-size: cover;
   background-repeat: no-repeat;
 }
-.carousel_anounce_wrap{  display: none; }
+.carousel_announce_wrap{  display: none; }
 
-.anounce_annotation{
+.announce_annotation{
   color: white;
   text-align: left;
   padding-left: 0.8rem;
@@ -828,9 +828,9 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 }
 
 @media(max-width: 1400px){
-  #anounces_row { height: 400px; }
+  #announces_row { height: 400px; }
   .annotation_description {font-size: 1.2rem; }
-  .anounce_annotation{
+  .announce_annotation{
     width: 85%;
     height: 380px;
     top: 2%;
@@ -844,13 +844,13 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   .annotation_description {font-size: 1.2rem; }
   .annotation_title { font-size: 1.5rem; top: 35%; }
   .annotation_time { top: 25%; }
-  #anounces_row > .col{ display: none;  }
+  #announces_row > .col{ display: none;  }
   #main_carousel{ display: block !important; }
 }
 
 @media(max-width: 530px){
-  #anounces_row { height: 400px; }
-  .anounce_annotation{
+  #announces_row { height: 400px; }
+  .announce_annotation{
     height: 380px;
     top: 2%;
   }
@@ -858,9 +858,9 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   .annotation_time { font-size: 1.4rem; }
 }
 @media(max-width: 430px){
-  .anounce_annotation { width: 85%; }
+  .announce_annotation { width: 85%; }
 }
-/******** Anounce Carousel  ***********/
+/******** announce Carousel  ***********/
 /***************************************/
 /******   Speech bubble   ******/
 .speech-bubble-left {

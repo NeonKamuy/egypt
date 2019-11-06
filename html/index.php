@@ -105,11 +105,11 @@
 
   <!-- Блок анонсов -->
   <section class="pt-5 pb-0 mb-n2">
-    <div class="container-fluid" id="anounces">
-      <div class="row text-center" id="anounces_row">
+    <div class="container-fluid" id="announces">
+      <div class="row text-center" id="announces_row">
         <div class="col md-4 mx-2">
-          <div class="static_anounce_wrap" style="background-image:url('/img/anounces_static/banner1.jpg')">
-            <div class="anounce_annotation">
+          <div class="static_announce_wrap" style="background-image:url('/img/announces_static/banner1.jpg')">
+            <div class="announce_annotation">
               <div class="annotation_description">
                 Тип мероприятия
                 Имя Фамилия
@@ -128,8 +128,8 @@
         </div>
 
         <div class="col md-4 mx-2" id="main_carousel">
-          <div class="carousel_anounce_wrap" style="background-image:url('/img/anounces_carousel/banner1.jpg'); display: block">   <!-- Установить display:block только для первого баннера карусели, чтобы они не накладывались до обработки скриптом  -->
-            <div class="anounce_annotation">
+          <div class="carousel_announce_wrap" style="background-image:url('/img/announces_carousel/banner1.jpg'); display: block">   <!-- Установить display:block только для первого баннера карусели, чтобы они не накладывались до обработки скриптом  -->
+            <div class="announce_annotation">
               <div class="annotation_description">
                 Тип мероприятия
                 Имя Фамилия
@@ -146,8 +146,8 @@
             </div>
           </div>
 
-          <div class="carousel_anounce_wrap" style="background-image:url('/img/anounces_carousel/banner2.jpg')">
-            <div class="anounce_annotation">
+          <div class="carousel_announce_wrap" style="background-image:url('/img/announces_carousel/banner2.jpg')">
+            <div class="announce_annotation">
               <div class="annotation_description">
                 Тип мероприятия
                 Имя Фамилия
@@ -164,8 +164,8 @@
             </div>
           </div>
 
-          <div class="carousel_anounce_wrap" style="background-image:url('/img/anounces_carousel/banner3.jpg')">
-            <div class="anounce_annotation">
+          <div class="carousel_announce_wrap" style="background-image:url('/img/announces_carousel/banner3.jpg')">
+            <div class="announce_annotation">
               <div class="annotation_description">
                 Тип мероприятия
                 Имя Фамилия
@@ -184,8 +184,8 @@
         </div>
 
         <div class="col md-4 mx-2">
-          <div class="static_anounce_wrap" style="background-image:url('/img/anounces_static/banner2.jpg')">
-            <div class="anounce_annotation">
+          <div class="static_announce_wrap" style="background-image:url('/img/announces_static/banner2.jpg')">
+            <div class="announce_annotation">
               <div class="annotation_description">
                 Тип мероприятия
                 Имя Фамилия

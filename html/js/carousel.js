@@ -1,5 +1,5 @@
 window.addEventListener('load', ()=>{
-  if(carousel.init('main_carousel', 'carousel_anounce_wrap')){
+  if(carousel.init('main_carousel', 'carousel_announce_wrap')){
     carousel.container.addEventListener('mousedown', carousel.onmousedown);
     carousel.container.addEventListener('touchstart', carousel.onmousedown);
   }
