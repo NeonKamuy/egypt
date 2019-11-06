@@ -1,6 +1,7 @@
 window.addEventListener('load', ()=>{
   if(carousel.init('main_carousel', 'carousel_anounce_wrap')){
-    document.getElementById('main_carousel').addEventListener('mousedown', carousel.onmousedown);
+    carousel.container.addEventListener('mousedown', carousel.onmousedown);
+    carousel.container.addEventListener('touchstart', carousel.onmousedown);
   }
 })
 
@@ -79,6 +80,9 @@ var carousel = {
     carousel.mouseStart = e.clientX;
     window.addEventListener('mouseup', carousel.onmouseup, { 'once':true });
     window.addEventListener('mousemove', carousel.onmousemove);
+
+    window.addEventListener('touchend', carousel.onmouseup, { 'once':true });
+    window.addEventListener('touchmove', carousel.onmousemove);
   },
 
   'onmousemove' : function(e){
@@ -96,6 +100,7 @@ var carousel = {
 
   'onmouseup' : function(){
     window.removeEventListener('mousemove', carousel.onmousemove);
+    window.removeEventListener('touchmove', carousel.onmousemove);
 
     if(carousel.offset.curr >= 150 && carousel.next != 'none'){
       carousel.change_el('next');
