@@ -589,7 +589,7 @@ header.masthead .intro-text .intro-heading {
 
 section#contact {
   background-color: #212529;
-  background-image: url("../img/map-image.png");
+  background-image: url("../img/header-bg.jpg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -909,3 +909,29 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 
 .speech-bubble-left > h1, .speech-bubble-right > h1 { font-size: 1.15rem; font-weight: normal; }
 .speech-bubble-left > h2, .speech-bubble-right > h2 { font-size: 1rem; font-weight: normal; }
+
+/*************************************/
+
+.horus_eye_ico{
+  background-image: url('/img/horus_eye.png');
+  padding: 20px;
+  margin-right: 1rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#navbar_brand_own_sm, #navbar_brand_own_xs { display: none; }
+.navbar-brand-own{
+  margin: 0 auto;
+  transform: translateX(-1rem);
+  font-size: 1.1rem;
+  font-family: 'Montserrat';
+  text-transform: uppercase;
+  letter-spacing: 0.135em;
+}
+@media(min-width:500px) and (max-width:990px){
+  #navbar_brand_own_sm{  display: inline;  }
+}
+@media(min-width:350px) and (max-width:500px){
+  #navbar_brand_own_xs{  display: inline;  }
+}
