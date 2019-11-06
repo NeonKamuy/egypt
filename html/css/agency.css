@@ -745,7 +745,12 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 
 
 /*******  Anounce banners  *******/
-#anounces{ max-width: 90vw; }
+#anounces{
+  max-width: 90vw;
+  cursor: default;
+  user-select: none;
+}
+
 #anounces_row { height: 500px; }
 #anounces_row .col{ height: 100%; overflow: hidden; }
 
