@@ -15,7 +15,11 @@ var carousel = {
     carousel.mouseStart = 0;
 
 
-    carousel.offset = { 'curr' : 0, 'first' : 0 };
+    carousel.offset = {
+      'curr' : 0,
+      'first' : 0,
+      'change_el_required' : (carousel.width/3),
+    };
 
     carousel.prev = 'none';
     carousel.curr = carousel.init_el(0);
@@ -104,10 +108,10 @@ var carousel = {
     window.removeEventListener('mousemove', carousel.onmousemove);
     window.removeEventListener('touchmove', carousel.onmousemove);
 
-    if(carousel.offset.curr >= 150 && carousel.next != 'none'){
+    if(carousel.offset.curr >= carousel.offset.change_el_required && carousel.next != 'none'){
       carousel.change_el('next');
     }
-    else if(carousel.offset.curr <= -150 && carousel.prev != 'none'){
+    else if(carousel.offset.curr <= -carousel.offset.change_el_required && carousel.prev != 'none'){
       carousel.change_el('prev');
     }
     else{
