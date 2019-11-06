@@ -920,25 +920,6 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   cursor: pointer;
 }
 
-.order_button{
-  color: #52A4D5;
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 2px 4px;
-  margin-top: -8px;
-  margin-bottom: 12px;
-  display: block;
-  width: max-content;
-  border: 1px solid;
-  border-radius: 6px;
-  letter-spacing: 0.05rem;
-}
-.order_button:hover, .order_button:active{
-  color: #52A4D5;
-  background-color: #e7eaee;
-  text-decoration: none !important;
-}
-
 .horus_eye_ico{
   background-image: url('/img/horus_eye.png');
   padding: 20px;
@@ -960,4 +941,88 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 }
 @media(min-width:350px) and (max-width:500px){
   #navbar_brand_own_xs{  display: inline;  }
+}
+/********************************************/
+
+button.learn-more {
+  width: 12rem;
+  height: auto;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  display: block;
+  font-family: "Mukta", sans-serif;
+  font-size: 0.8rem;
+  margin-bottom: 25px;
+  margin-top: -10px;
+}
+button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  margin-top: 5px;
+  width: 2rem;
+  height: 2rem;
+  background: #282936;
+  border-radius: 1.625rem;
+}
+button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.28rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 10px;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #282936;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+button:hover .circle {
+  width: 100%;
+}
+button:hover .circle .icon.arrow {
+  background: #fff;
+  -webkit-transform: translate(1rem, 0);
+          transform: translate(1rem, 0);
+}
+button:hover .button-text {
+  color: #fff;
 }
