@@ -20,7 +20,7 @@
   Пароль: admin
   Сменить логин и пароль можно в панели администратора
 
-  <a href="'.$_SERVER['SERVER_NAME'].'/admin">Войти</a>');
+  <a href="http://'.$_SERVER['SERVER_NAME'].'/admin">Войти</a>');
 
   define('ADMIN_LOGIN_PAGE_innerHTML', '
   <!DOCTYPE html>

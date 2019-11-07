@@ -2,7 +2,7 @@
   /**********   FUNCTIONS   ***********/
   function get_html_parts($user, $pass){
     return array(
-      '<!DOCTYPE html><html><head>
+      'header' => '<!DOCTYPE html><html><head>
         <meta charset="utf-8">
         <title>Панель администратора</title>
         <!-- Bootstrap data -->
@@ -19,6 +19,21 @@
               <input type="hidden" name="username" value="'.$user.'">
               <input type="hidden" name="password" value="'.$pass.'">
           </form> </div>
+        </div>
+      ',
+
+      'announces' => '
+        <div class="container py-3 mx-2 border-bottom" id="left_banner_settings">
+          <h4>Настройка левого статического баннера</h4>
+          <input type="hidden" name="username" value="'.$user.'">
+          <input type="hidden" name="password" value="'.$pass.'">
+          <input type="text" name="img_src" required="" placeholder="Источник изображения">
+          <input type="text" name="event_type" required="" placeholder="Тип мероприятия">
+          <input type="text" name="initials" required="" placeholder="Имя и фамилия">
+          <input type="text" name="event_time" required="" placeholder="Время">
+          <input type="text" name="event_title" required="" placeholder="Название мероприятия">
+          <input type="text" name="event_page" required="" placeholder="Страница мероприятия">
+          <input type="button" onclick="set_left_banner(this)">
         </div>
       ',
     );
@@ -56,7 +71,7 @@
       }
       $html = get_html_parts($user, $pass);
 
-      $response = $html[0];
+      $response = $html['header'];
       $response .= '<div class="container py-3 mx-2 border-bottom"><h4>Текущие пользователи</h4>';
       for($i=0; $i!=$users['count']; ++$i){
         $response .= '<div class="row"><form method="POST" action="./admin.php?mode=delete_user">
@@ -66,6 +81,7 @@
         <input type="hidden" name="password" value="'.$pass.'">
         <input type="submit" value="Удалить"></form></div>';
       }
+      $response .= '</div>'.$html['announces'];
       echo $response;
       R::close();
       exit();
@@ -116,7 +132,7 @@
         <li>Имя и/или пароль нового пользоваьеля слишком длинный</li></ul>
         Пожалуйста, повторите попытку
 
-        <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
+        <a href="http://'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
       }
 
       $users = R::dispense('users');
@@ -127,7 +143,7 @@
 
       die('<meta charset="utf-8"><pre>
       Новый пользователь был успешно создан
-      <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
+      <a href="http://'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
     }
     /***************  Delete one of users  ************************/
     if($_GET['mode'] == 'delete_user'){
@@ -152,7 +168,7 @@
         R::close();
         die('<meta charset="utf-8"><pre>
         Единственный пользователь не может быть удален
-        <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
+        <a href="http://'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
       }
 
       $access_granted = FALSE; $user_exists = FALSE;
@@ -176,14 +192,14 @@
         <li>Имя и/или пароль нового пользоваьеля слишком длинный</li></ul>
         Пожалуйста, повторите попытку
 
-        <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
+        <a href="http://'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
       }
 
       R::exec('DELETE FROM users WHERE username = "'.$delete_user.'" AND password = "'.$delete_pass.'"');
       R::close();
       die('<meta charset="utf-8"><pre>
       Пользователь был успешно удален!
-      <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
+      <a href="http://'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
     }
   }
 ?>
