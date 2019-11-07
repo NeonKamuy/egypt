@@ -22,7 +22,7 @@
         </div>
       ',
 
-      'announces' => '
+      'announce_left' => '
         <div class="container py-3 mx-2 border-bottom" id="left_banner_settings">
           <h4>Настройка левого статического баннера</h4>
           <input type="hidden" name="username" value="'.$user.'">
@@ -33,7 +33,22 @@
           <input type="text" name="event_time" required="" placeholder="Время">
           <input type="text" name="event_title" required="" placeholder="Название мероприятия">
           <input type="text" name="event_page" required="" placeholder="Страница мероприятия">
-          <input type="button" onclick="set_left_banner(this)">
+          <input type="button" onclick="set_banner(this)">
+        </div>
+      ',
+
+      'announce_right' => '
+        <div class="container py-3 mx-2 border-bottom" id="right_banner_settings">
+          <h4>Настройка правого статического баннера</h4>
+          <input type="hidden" name="username" value="'.$user.'">
+          <input type="hidden" name="password" value="'.$pass.'">
+          <input type="text" name="img_src" required="" placeholder="Источник изображения">
+          <input type="text" name="event_type" required="" placeholder="Тип мероприятия">
+          <input type="text" name="initials" required="" placeholder="Имя и фамилия">
+          <input type="text" name="event_time" required="" placeholder="Время">
+          <input type="text" name="event_title" required="" placeholder="Название мероприятия">
+          <input type="text" name="event_page" required="" placeholder="Страница мероприятия">
+          <input type="button" onclick="set_banner(this)">
         </div>
       ',
     );
@@ -81,7 +96,7 @@
         <input type="hidden" name="password" value="'.$pass.'">
         <input type="submit" value="Удалить"></form></div>';
       }
-      $response .= '</div>'.$html['announces'];
+      $response .= '</div>'.$html['announce_left'].$html['announce_right'];
       echo $response;
       R::close();
       exit();
