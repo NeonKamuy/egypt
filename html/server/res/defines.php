@@ -1,5 +1,5 @@
 <?php
       define("DB_USER", "foo");
       define("DB_PASSWORD", "bar");
-      echo DB_USER."  ".DB_PASSWORD;
+      define("DB_NAME", "admin_1499018869");
     ?>

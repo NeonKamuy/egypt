@@ -45,7 +45,7 @@
   $php_defines = '<?php
       define("DB_USER", "'.$user.'");
       define("DB_PASSWORD", "'.$pass.'");
-      echo DB_USER."  ".DB_PASSWORD;
+      define("DB_NAME", "'.DB_NAME.'");
     ?>';
   $defines_file = fopen('./res/defines.php', 'w');
   if(!$defines_file){
@@ -65,12 +65,12 @@
     send_performance_error($error_message);
   }
 
-  if(!fwrite($admin_login_page, $admin_login_page_innerHTML)){
+  if(!fwrite($admin_login_page, ADMIN_LOGIN_PAGE_innerHTML)){
     $error_message = drop_db_onerror($con);
     fclose($admin_login_page);
     send_performance_error($error_message);
   }
   fclose($admin_login_page);
 
-  die($SUCCESS_END_TEXT);
+  die(SUCCESS_END_TEXT);
 ?>
