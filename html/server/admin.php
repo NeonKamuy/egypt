@@ -39,7 +39,8 @@
 
       R::setup( 'mysql:host=localhost;dbname='.DB_NAME, MYSQL_USERNAME, MYSQL_PASSWORD );
       if(!R::testConnection()){
-        die('<meta charset="utf-8">Не удалось подключиться к базе данных. Пожалуйста, повторите попытку');
+        die('<meta charset="utf-8"><pre>Не удалось подключиться к базе данных. Пожалуйста, повторите попытку
+        <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
       }
 
       $users = R::getAll( 'SELECT * FROM users' );
@@ -52,7 +53,8 @@
         }
       }
       if(!$access_granted){
-        die('<meta charset="utf-8">Введенный логин и/или пароль неверен. Пожалуйста, повторите попытку');
+        die('<meta charset="utf-8"><pre>Введенный логин и/или пароль неверен. Пожалуйста, повторите попытку
+        <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
       }
       $html = get_html_parts($user, $pass);
 
@@ -83,7 +85,8 @@
 
       R::setup( 'mysql:host=localhost;dbname='.DB_NAME, MYSQL_USERNAME, MYSQL_PASSWORD );
       if(!R::testConnection()){
-        die('<meta charset="utf-8">Не удалось подключиться к базе данных. Пожалуйста, повторите попытку');
+        die('<meta charset="utf-8"><pre>Не удалось подключиться к базе данных. Пожалуйста, повторите попытку
+        <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
       }
 
       $users = R::getAll( 'SELECT * FROM users' );
@@ -114,7 +117,9 @@
         <li>Пользователь с таким именем уже существует</li>
         <li>Имя и/или пароль нового пользователя слишком короткий</li>
         <li>Имя и/или пароль нового пользоваьеля слишком длинный</li></ul>
-        Пожалуйста, повторите попытку');
+        Пожалуйста, повторите попытку
+
+        <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
       }
 
       $users = R::dispense('users');
@@ -123,7 +128,9 @@
       R::store($users);
       R::close();
 
-      die('<meta charset="utf-8">Новый пользователь был успешно создан');
+      die('<meta charset="utf-8"><pre>
+      Новый пользователь был успешно создан
+      <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
     }
     /***************  Delete one of users  ************************/
     if($_GET['mode'] == 'delete_user'){
@@ -138,7 +145,9 @@
 
       R::setup( 'mysql:host=localhost;dbname='.DB_NAME, MYSQL_USERNAME, MYSQL_PASSWORD );
       if(!R::testConnection()){
-        die('<meta charset="utf-8">Не удалось подключиться к базе данных. Пожалуйста, повторите попытку');
+        die('<meta charset="utf-8"><pre>
+        Не удалось подключиться к базе данных. Пожалуйста, повторите попытку
+        <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
       }
 
       $users = R::getAll( 'SELECT * FROM users' );
@@ -146,7 +155,9 @@
 
       if($users['count'] == 1){
         R::close();
-        die('<meta charset="utf-8">Единственный пользователь не может быть удален');
+        die('<meta charset="utf-8"><pre>
+        Единственный пользователь не может быть удален
+        <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
       }
 
       $access_granted = FALSE; $user_exists = FALSE;
@@ -168,12 +179,16 @@
         <li>Пользователь с таким именем не существует</li>
         <li>Имя и/или пароль нового пользователя слишком короткий</li>
         <li>Имя и/или пароль нового пользоваьеля слишком длинный</li></ul>
-        Пожалуйста, повторите попытку');
+        Пожалуйста, повторите попытку
+
+        <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
       }
 
       R::exec('DELETE FROM users WHERE username = "'.$delete_user.'" AND password = "'.$delete_pass.'"');
       R::close();
-      die('<meta charset="utf-8">Пользователь был успешно удален!');
+      die('<meta charset="utf-8"><pre>
+      Пользователь был успешно удален!
+      <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
     }
   }
 ?>
