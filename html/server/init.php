@@ -18,6 +18,26 @@
   }
 /************* MAIN SCOPE *******************/
 
+  if(!$_POST['username'] || !$_POST['password']){
+    die('  <html dir="ltr" lang="en"><head>
+        <meta charset="utf-8">
+        <title>Панель администратора</title>
+        <style>
+          h3,span,form > input { margin: 10px 5px; }
+        </style>
+      </head>
+      <body>
+        <h3> Инициализации панели администратора </h3>
+        <span> Введите имя и пароль пользователя БД, чтобы продолжить </span>
+        <form method="POST" action="/server/init.php">
+          <input type="text" placeholder="Логин" name="username" pattern="[A-Za-z0-9]{1,}" title="латинские буквы и цифры" required="">
+          <input type="password" placeholder="Пароль" name="password" pattern="[A-Za-z0-9]{1,}" title="латинские буквы и цифры" required="">
+          <input type="submit" value="Войти">
+        </form>
+
+      </body></html>');
+  }
+
   $user = trim($_POST['username']);
   $pass = trim($_POST['password']);
 
@@ -46,7 +66,7 @@
       define("MYSQL_USERNAME", "'.$user.'");
       define("MYSQL_PASSWORD", "'.$pass.'");
       define("DB_NAME", "'.DB_NAME.'");
-      define("LOGIN_ERROR_MSG", "<meta charset=\"utf-8\"><pre>Произошла ошибка. Пожалуйста, повторите попытку
+      define("ADMIN_ERROR_MSG", "<meta charset=\"utf-8\"><pre>Произошла ошибка. Пожалуйста, повторите попытку
       <a href=\"http://'.$_SERVER['SERVER_NAME'].'/admin\">Вернуться</a>");
     ?>';
   $defines_file = fopen('./res/defines.php', 'w');

@@ -23,14 +23,14 @@
             $announces['right'] = $announces[$i]['data'];
           }
           else if($announces[$i]['type'] == 'carousel'){
-            $announces['carousel'][] = $announces[$i]['data'];
+            $announces['carousel'] = $announces[$i]['data'];
           }
         }
 
         R::close();
 
-        if(isset($announces['left'])) $left_announce = json_decode($announces['left']);
-        if(isset($announces['right'])) $right_announce = json_decode($announces['right']);
+        if(isset($announces['left'])) $left_announce = json_decode($announces['left'], TRUE);
+        if(isset($announces['right'])) $right_announce = json_decode($announces['right'], TRUE);
       }
 
       else echo '<script>console.log("Не удалось подключиться к базе данных");</script>';
@@ -145,7 +145,7 @@
           <?php
             if(isset($left_announce)){
               echo '
-              <div class="static_announce_wrap" style="background-image:url("'.$left_announce['img_src'].'")">
+              <div class="static_announce_wrap" style="background-image:url(\''.$left_announce['img_src'].'\')">
                 <div class="announce_annotation">
                   <div class="annotation_description">
                     '.$left_announce['event_type'].'
@@ -244,7 +244,7 @@
 
             if(isset($right_announce)){
               echo '
-              <div class="static_announce_wrap" style="background-image:url("'.$right_announce['img_src'].'")">
+              <div class="static_announce_wrap" style="background-image:url(\''.$right_announce['img_src'].'\')">
                 <div class="announce_annotation">
                   <div class="annotation_description">
                     '.$right_announce['event_type'].'
