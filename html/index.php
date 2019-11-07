@@ -57,7 +57,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:700">
 
   <!-- Custom styles for this template -->
-  <link href="css/agency.min.css" rel="stylesheet">
+  <link href="css/agency.css" rel="stylesheet">
 
 </head>
 

@@ -38,24 +38,24 @@
       </body></html>');
   }
 
-  $user = trim($_POST['username']);
-  $pass = trim($_POST['password']);
+  $user = trim($_POST['username']);   // получаем имя пользователя сервера баз данных
+  $pass = trim($_POST['password']);   // получаем пароль пользователя сервера баз данных
 
-  $con = mysqli_connect('127.0.0.1', $user, $pass);
-  if(!$con || mysqli_connect_error() || mysqli_error($con)){
+  $con = mysqli_connect('127.0.0.1', $user, $pass);   // подключаемся к базе данных
+  if(!$con || mysqli_connect_error() || mysqli_error($con)){    // обрабатываем возможные ошибки подключения
       $error_message = mysqli_error($con);
       send_performance_error($error_message);
       mysqli_close($con);
   }
 
-  $sql = 'CREATE DATABASE '.DB_NAME;
-  if(!mysqli_query($con, $sql) || !mysqli_select_db($con, DB_NAME)){
+  $sql = 'CREATE DATABASE '.DB_NAME;    // создаем базу данных (значение генерируется в /server/res/init_resources.php )
+  if(!mysqli_query($con, $sql) || !mysqli_select_db($con, DB_NAME)){  // обрабатываем возможные ошибки создания БД
     $error_message = mysqli_error($con);
     mysqli_close($con);
     send_performance_error($error_message);
   }
 
-  for($i=0; $i != $create_table_queries['length']; ++$i){
+  for($i=0; $i != $create_table_queries['length']; ++$i){   // инициализируем таблицы базы данных ( значения указаны в /server/res/init_resources.php )
     if(!mysqli_query($con, $create_table_queries[$i])){
       $error_message = drop_db_onerror($con);
       send_performance_error($error_message);
@@ -66,33 +66,31 @@
       define("MYSQL_USERNAME", "'.$user.'");
       define("MYSQL_PASSWORD", "'.$pass.'");
       define("DB_NAME", "'.DB_NAME.'");
-      define("ADMIN_ERROR_MSG", "<meta charset=\"utf-8\"><pre>Произошла ошибка. Пожалуйста, повторите попытку
-      <a href=\"http://'.$_SERVER['SERVER_NAME'].'/admin\">Вернуться</a>");
     ?>';
-  $defines_file = fopen('./res/defines.php', 'w');
-  if(!$defines_file){
+  $defines_file = fopen('./res/defines.php', 'w');    // открываем файл с дефайнами
+  if(!$defines_file){     // обрабатываем ошибки
     $error_message = drop_db_onerror($con);
     send_performance_error($error_message);
   }
-  if(!fwrite($defines_file, $php_defines)){
+  if(!fwrite($defines_file, $php_defines)){   // записываем дефайны и обрабатываем ошибки
     $error_message = drop_db_onerror($con);
     fclose($defines_file);
     send_performance_error($error_message);
   }
-  fclose($defines_file);
+  fclose($defines_file);    // закрываем файл
 
-  $admin_login_page = fopen('../admin/index.html', 'w');
-  if(!$admin_login_page){
+  $admin_login_page = fopen('../admin/index.html', 'w');    // открываем index=файл админ-панели
+  if(!$admin_login_page){   // обрабатываем ошибки
     $error_message = drop_db_onerror($con);
     send_performance_error($error_message);
   }
 
-  if(!fwrite($admin_login_page, ADMIN_LOGIN_PAGE_innerHTML)){
-    $error_message = drop_db_onerror($con);
+  if(!fwrite($admin_login_page, ADMIN_LOGIN_PAGE_innerHTML)){   // заменяем в нем форму инициализации БД на форму входа в панель
+    $error_message = drop_db_onerror($con);     // и обрабатываем ошибки
     fclose($admin_login_page);
     send_performance_error($error_message);
   }
-  fclose($admin_login_page);
+  fclose($admin_login_page);    // закрываем файл
 
-  die(SUCCESS_END_TEXT);
+  die(SUCCESS_END_TEXT);    // успешно завершаем работу
 ?>

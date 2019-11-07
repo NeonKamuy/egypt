@@ -817,10 +817,12 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   cursor: pointer;
   padding: 0.5rem 0.8rem;
   display: block;
+  color: white;
 }
 .annotation_button:hover{
   background-color: white;
-  color: #212529 !important;
+  color: #212529;
+  text-decoration: none;
 }
 .annotation_button:active{
   background-color: #212529 !important;

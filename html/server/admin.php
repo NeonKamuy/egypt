@@ -1,71 +1,74 @@
 <?php
-  /**********   FUNCTIONS   ***********/
-  function get_html_parts($user, $pass){
-    return array(
-      'header' => '<!DOCTYPE html><html><head>
-        <meta charset="utf-8">
-        <title>Панель администратора</title>
-        <!-- Bootstrap data -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!------------------->
-        </head><body>
-        <div class="container py-3 mx-2 border-bottom">
-          <h4>Создать пользователя</h4>
-          <div class="row"> <form method="POST" action="/server/admin.php?mode=create_user">
-              <input type="text" name="new_username" pattern="[A-Za-z0-9]{3,25}" title="латинские буквы и цифры, от 3 до 25 символов" required="" placeholder="Имя пользователя">
-              <input type="text" name="new_password" pattern="[A-Za-z0-9]{3,25}" title="латинские буквы и цифры, от 3 до 25 символов" required="" placeholder="Пароль">
-              <input type="submit" value="Создать">
-              <input type="hidden" name="username" value="'.$user.'">
-              <input type="hidden" name="password" value="'.$pass.'">
-          </form> </div>
-        </div>
-      ',
-
-      'announce_left' => '
-        <div class="container py-3 mx-2 border-bottom" id="left_banner_settings">
-          <h4>Настройка левого статического баннера</h4>
-          <form method="POST" action="/server/admin.php?mode=set_banner&type=left">
-            <input type="hidden" name="username" value="'.$user.'">
-            <input type="hidden" name="password" value="'.$pass.'">
-            <input type="text" name="img_src" required="" placeholder="Источник изображения">
-            <input type="text" name="event_type" required="" placeholder="Тип мероприятия">
-            <input type="text" name="initials" required="" placeholder="Имя и фамилия">
-            <input type="text" name="event_time" required="" placeholder="Время">
-            <input type="text" name="event_title" required="" placeholder="Название мероприятия">
-            <input type="text" name="event_page" required="" placeholder="Страница мероприятия">
-            <input type="submit" value="Установить"></form>
-          <form method="POST" action="/server/admin.php?mode=drop_banner&type=left">
-            <input type="hidden" name="username" value="'.$user.'">
-            <input type="hidden" name="password" value="'.$pass.'">
-            <input type="submit" value="Установить настройки по умолчанию"></form>
-        </div>
-      ',
-
-      'announce_right' => '
-        <div class="container py-3 mx-2 border-bottom" id="right_banner_settings">
-          <h4>Настройка правого статического баннера</h4>
-          <form method="POST" action="/server/admin.php?mode=set_banner&type=right">
-            <input type="hidden" name="username" value="'.$user.'">
-            <input type="hidden" name="password" value="'.$pass.'">
-            <input type="text" name="img_src" required="" placeholder="Источник изображения">
-            <input type="text" name="event_type" required="" placeholder="Тип мероприятия">
-            <input type="text" name="initials" required="" placeholder="Имя и фамилия">
-            <input type="text" name="event_time" required="" placeholder="Время">
-            <input type="text" name="event_title" required="" placeholder="Название мероприятия">
-            <input type="text" name="event_page" required="" placeholder="Страница мероприятия">
-            <input type="submit" value="Установить">
-          <form method="POST" action="/server/admin.php?mode=drop_banner&type=left">
-            <input type="hidden" name="username" value="'.$user.'">
-            <input type="hidden" name="password" value="'.$pass.'">
-            <input type="submit" value="Установить настройки по умолчанию"></form>
-          </form>
-        </div>
-      ',
-    );
+ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
+/********** FUNCTIONS  **********************/
+function banner_data($user, $pass){
+  if(!R::testConnection()){
+    R::setup();
+    $banner_left = R::getAll('SELECT * FROM announces WHERE type="left"');
+    $banner_right = R::getAll('SELECT * FROM announces WHERE type="right"');
+    R::close();
+  }
+  else {
+    $banner_left = R::getAll('SELECT * FROM announces WHERE type="left"');
+    $banner_right = R::getAll('SELECT * FROM announces WHERE type="right"');
   }
 
+  if(count($banner_left) > 0){ $banner_left = json_decode($banner_left[0]['data'], true); }
+  else{ $banner_left = ['img_src' => '', 'event_type' => '', 'initials' => '', 'event_time' => '', 'event_title' => '', 'event_page' => '']; }
 
+  if(count($banner_right) > 0){ $banner_right = json_decode($banner_right[0]['data'], true); }
+  else{ $banner_right = ['img_src' => '', 'event_type' => '', 'initials' => '', 'event_time' => '', 'event_title' => '', 'event_page' => '']; }
+
+  $response = '</div>
+    <div class="container py-3 mx-2 border-bottom" id="left_banner_settings">
+      <div class="row mx-1"><h4>Настройка левого статического баннера</h4></div>
+      <form method="POST" action="/server/admin.php?mode=set_banner&type=left">
+      <div class="row mx-1">
+        <input type="hidden" name="username" value="'.$user.'">
+        <input type="hidden" name="password" value="'.$pass.'">
+        <div class="col col-md-4 col-lg-3 m-1"> <input type="text" name="img_src" value="'.$banner_left['img_src'].'" required="" placeholder="Источник изображения"> </div>
+        <div class="col col-md-4 col-lg-3 m-1"> <input type="text" name="event_type" value="'.$banner_left['event_type'].'" required="" placeholder="Тип мероприятия"> </div>
+        <div class="col col-md-4 col-lg-3 m-1"> <input type="text" name="initials" value="'.$banner_left['initials'].'" required="" placeholder="Имя и фамилия"> </div>
+        <div class="col col-md-4 col-lg-3 m-1"> <input type="text" name="event_time" value="'.$banner_left['event_time'].'" required="" placeholder="Время"> </div>
+        <div class="col col-md-4 col-lg-3 m-1"> <input type="text" name="event_title" value="'.$banner_left['event_title'].'" required="" placeholder="Название мероприятия"> </div>
+        <div class="col col-md-4 col-lg-3 m-1"> <input type="text" name="event_page" value="'.$banner_left['event_page'].'" required="" placeholder="Страница мероприятия"> </div>
+      </div>
+        <div class="row m-1"> <div class="col"> <input type="submit" value="Установить"> </div>  </div>
+      </form>
+      <form method="POST" action="/server/admin.php?mode=drop_banner&type=left" class="mt-2">
+        <input type="hidden" name="username" value="'.$user.'">
+        <input type="hidden" name="password" value="'.$pass.'">
+        <div class="row mx-1"> <div class="col"> <input type="submit" value="Установить настройки по умолчанию">  </div> </div>
+      </form>
+    </div>
+    <div class="container py-3 mx-2 border-bottom" id="right_banner_settings">
+      <div class="row mx-1"><h4>Настройка правого статического баннера</h4></div>
+      <form method="POST" action="/server/admin.php?mode=set_banner&type=right">
+      <div class="row mx-1">
+        <input type="hidden" name="username" value="'.$user.'">
+        <input type="hidden" name="password" value="'.$pass.'">
+        <div class="col col-md-4 col-lg-3 m-1"> <input type="text" name="img_src" value="'.$banner_right['img_src'].'" required="" placeholder="Источник изображения"> </div>
+        <div class="col col-md-4 col-lg-3 m-1"> <input type="text" name="event_type" value="'.$banner_right['event_type'].'" required="" placeholder="Тип мероприятия"> </div>
+        <div class="col col-md-4 col-lg-3 m-1"> <input type="text" name="initials" value="'.$banner_right['initials'].'" required="" placeholder="Имя и фамилия"> </div>
+        <div class="col col-md-4 col-lg-3 m-1"> <input type="text" name="event_time" value="'.$banner_right['event_time'].'" required="" placeholder="Время"> </div>
+        <div class="col col-md-4 col-lg-3 m-1"> <input type="text" name="event_title" value="'.$banner_right['event_title'].'" required="" placeholder="Название мероприятия"> </div>
+        <div class="col col-md-4 col-lg-3 m-1"> <input type="text" name="event_page" value="'.$banner_right['event_page'].'" required="" placeholder="Страница мероприятия"> </div>
+      </div>
+        <div class="row m-1"> <div class="col"> <input type="submit" value="Установить"> </div>  </div>
+      </form>
+      <form method="POST" action="/server/admin.php?mode=drop_banner&type=left" class="mt-2">
+        <input type="hidden" name="username" value="'.$user.'">
+        <input type="hidden" name="password" value="'.$pass.'">
+        <div class="row mx-1"> <div class="col"> <input type="submit" value="Установить настройки по умолчанию">  </div> </div>
+      </form>
+    </div>
+  ';
+
+  return $response;
+}
+/*******************************************/
+  define('ADMIN_ERROR_MSG', '<meta charset="utf-8"><pre>Произошла ошибка. Пожалуйста, повторите попытку
+  <a href="http://'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
 /**********  Modes  ************************/
   if(isset($_GET['mode'])){
     /*********  Show admin panel  ************/
@@ -95,20 +98,39 @@
       if(!$access_granted){
         die(ADMIN_ERROR_MSG);
       }
-      $html = get_html_parts($user, $pass);
 
-      $response = $html['header'];
-      $response .= '<div class="container py-3 mx-2 border-bottom"><h4>Текущие пользователи</h4>';
+      $response = '<!DOCTYPE html><html><head>
+        <meta charset="utf-8">
+        <title>Панель администратора</title>
+        <!-- Bootstrap data -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!------------------->
+        </head><body>
+        <div class="container py-3 mx-2 border-bottom">
+          <div class="row mx-1"><h4>Создать пользователя</h4></div>
+          <div class="row mx-1"><form method="POST" action="/server/admin.php?mode=create_user">
+              <input type="text" name="new_username" pattern="[A-Za-z0-9]{3,25}" title="латинские буквы и цифры, от 3 до 25 символов" required="" placeholder="Имя пользователя">
+              <input type="text" name="new_password" pattern="[A-Za-z0-9]{3,25}" title="латинские буквы и цифры, от 3 до 25 символов" required="" placeholder="Пароль">
+              <input type="submit" value="Создать">
+              <input type="hidden" name="username" value="'.$user.'">
+              <input type="hidden" name="password" value="'.$pass.'">
+          </form></div>
+        </div>
+      ';
+      $response .= '<div class="container py-3 mx-2 border-bottom"><div class="row mx-1"><h4>Текущие пользователи</h4></div>';
       for($i=0; $i!=$users['count']; ++$i){
-        $response .= '<div class="row"><form method="POST" action="/server/admin.php?mode=delete_user">
+        $response .= '<div class="row mx-1"><form method="POST" action="/server/admin.php?mode=delete_user">
         <input type="text" value="'.$users[$i]['username'].'" name="delete_username" readonly>
         <input type="text" value="'.$users[$i]['password'].'" name="delete_password" readonly>
         <input type="hidden" name="username" value="'.$user.'">
         <input type="hidden" name="password" value="'.$pass.'">
         <input type="submit" value="Удалить"></form></div>';
       }
-      $response .= '</div>'.$html['announce_left'].$html['announce_right'];
+
+      $response .= banner_data($user, $pass);
       echo $response;
+
       R::close();
       exit();
     }
@@ -260,9 +282,6 @@
         die('<meta charset="utf-8"><pre>
         Похоже, произошла ошибка. Возможные причины:
         <ul><li>У вас недостаточно прав для этой операции</li>
-        <li>Пользователь с таким именем не существует</li>
-        <li>Имя и/или пароль нового пользователя слишком короткий</li>
-        <li>Имя и/или пароль нового пользоваьеля слишком длинный</li></ul>
         Пожалуйста, повторите попытку
 
         <a href="http://'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
@@ -322,9 +341,6 @@
         die('<meta charset="utf-8"><pre>
         Похоже, произошла ошибка. Возможные причины:
         <ul><li>У вас недостаточно прав для этой операции</li>
-        <li>Пользователь с таким именем не существует</li>
-        <li>Имя и/или пароль нового пользователя слишком короткий</li>
-        <li>Имя и/или пароль нового пользоваьеля слишком длинный</li></ul>
         Пожалуйста, повторите попытку
 
         <a href="http://'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
