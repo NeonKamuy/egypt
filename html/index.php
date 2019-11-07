@@ -1,7 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head>
 
-<head>
+  <?php
+    ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
+
+    if(file_exists('./server/res/defines.php')){
+      include_once('./server/res/defines.php');
+
+      include_once('./server/res/rb.php');
+
+      R::setup( 'mysql:host=localhost;dbname='.DB_NAME, MYSQL_USERNAME, MYSQL_PASSWORD );
+
+      if(R::testConnection()){
+        $announces = R::getAll( 'SELECT * FROM announces' );
+        $announces['count'] = count($announces);
+        $announces['carousel'] = [];
+
+        for($i=0; $i!=$announces['count']; ++$i){
+          if($announces[$i]['type'] == 'left'){
+            $announces['left'] = $announces[$i]['data'];
+          }
+          else if($announces[$i]['type'] == 'right'){
+            $announces['right'] = $announces[$i]['data'];
+          }
+          else if($announces[$i]['type'] == 'carousel'){
+            $announces['carousel'][] = $announces[$i]['data'];
+          }
+        }
+
+        R::close();
+
+        if(isset($announces['left'])) $left_announce = json_decode($announces['left']);
+        if(isset($announces['right'])) $right_announce = json_decode($announces['right']);
+      }
+
+      else echo '<script>console.log("Не удалось подключиться к базе данных");</script>';
+    }
+  ?>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -108,19 +142,41 @@
     <div class="container-fluid" id="announces">
       <div class="row text-center" id="announces_row">
         <div class="col md-4 mx-2">
-          <div class="static_announce_wrap" style="background-image:url('/img/announces_static/banner1.jpg')">
-            <div class="announce_annotation">
-              <div class="annotation_description">
-                Тип мероприятия
-                Имя Фамилия
-              </div>
-              <div class="annotation_time">
-                6 июня, 2026
-              </div>
-              <div class="annotation_title">
-                Название мероприятия
-              </div>
-              <a class="annotation_button">
+          <?php
+            if(isset($left_announce)){
+              echo '
+              <div class="static_announce_wrap" style="background-image:url("'.$left_announce['img_src'].'")">
+                <div class="announce_annotation">
+                  <div class="annotation_description">
+                    '.$left_announce['event_type'].'
+                    '.$left_announce['initials'].'
+                  </div>
+                  <div class="annotation_time">
+                    '.$left_announce['event_time'].'
+                  </div>
+                  <div class="annotation_title">
+                    '.$left_announce['event_title'].'
+                  </div>
+                  <a class="annotation_button" href="'.$left_announce['event_page'].'">
+              ';
+            }
+            else echo '
+              <script>console.log("Нет данных по левому статическому баннеру");</script>
+              <div class="static_announce_wrap" style="background-image:url(\'/img/announces_static/banner1.jpg\')">
+                <div class="announce_annotation">
+                  <div class="annotation_description">
+                    Тип мероприятия
+                    Имя Фамилия
+                  </div>
+                  <div class="annotation_time">
+                    6 июня, 2026
+                  </div>
+                  <div class="annotation_title">
+                    Название мероприятия
+                  </div>
+                  <a class="annotation_button">
+                ';
+                                    ?>
                 Подробнее
               </a>
             </div>
@@ -184,19 +240,42 @@
         </div>
 
         <div class="col md-4 mx-2">
-          <div class="static_announce_wrap" style="background-image:url('/img/announces_static/banner2.jpg')">
-            <div class="announce_annotation">
-              <div class="annotation_description">
-                Тип мероприятия
-                Имя Фамилия
-              </div>
-              <div class="annotation_time">
-                14 августа, 2028
-              </div>
-              <div class="annotation_title">
-                Название мероприятия
-              </div>
-              <a class="annotation_button">
+          <?php
+
+            if(isset($right_announce)){
+              echo '
+              <div class="static_announce_wrap" style="background-image:url("'.$right_announce['img_src'].'")">
+                <div class="announce_annotation">
+                  <div class="annotation_description">
+                    '.$right_announce['event_type'].'
+                    '.$right_announce['initials'].'
+                  </div>
+                  <div class="annotation_time">
+                    '.$right_announce['event_time'].'
+                  </div>
+                  <div class="annotation_title">
+                    '.$right_announce['event_title'].'
+                  </div>
+                  <a class="annotation_button" href="'.$right_announce['event_page'].'">
+              ';
+            }
+            else echo '
+            <script>console.log("Нет данных по правому статическому баннеру");</script>
+            <div class="static_announce_wrap" style="background-image:url(\'/img/announces_static/banner2.jpg\')">
+              <div class="announce_annotation">
+                <div class="annotation_description">
+                  Тип мероприятия
+                  Имя Фамилия
+                </div>
+                <div class="annotation_time">
+                  14 августа, 2028
+                </div>
+                <div class="annotation_title">
+                  Название мероприятия
+                </div>
+                <a class="annotation_button">
+                ';
+                                    ?>
                 Подробнее
               </a>
             </div>
