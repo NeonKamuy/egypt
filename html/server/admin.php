@@ -34,8 +34,11 @@
             <input type="text" name="event_time" required="" placeholder="Время">
             <input type="text" name="event_title" required="" placeholder="Название мероприятия">
             <input type="text" name="event_page" required="" placeholder="Страница мероприятия">
-            <input type="submit" value="Установить">
-          </form>
+            <input type="submit" value="Установить"></form>
+          <form method="POST" action="/server/admin.php?mode=drop_banner&type=left">
+            <input type="hidden" name="username" value="'.$user.'">
+            <input type="hidden" name="password" value="'.$pass.'">
+            <input type="submit" value="Установить настройки по умолчанию"></form>
         </div>
       ',
 
@@ -52,6 +55,10 @@
             <input type="text" name="event_title" required="" placeholder="Название мероприятия">
             <input type="text" name="event_page" required="" placeholder="Страница мероприятия">
             <input type="submit" value="Установить">
+          <form method="POST" action="/server/admin.php?mode=drop_banner&type=left">
+            <input type="hidden" name="username" value="'.$user.'">
+            <input type="hidden" name="password" value="'.$pass.'">
+            <input type="submit" value="Установить настройки по умолчанию"></form>
           </form>
         </div>
       ',
@@ -278,6 +285,55 @@
       $announces->data = $data;
       R::store($announces);
       R::close();
+      die('<meta charset="utf-8"><pre>
+      Данные были успешно изменены!
+      <a href="http://'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
+    }
+    /************  Drop banner settings to default  *******/
+    if($_GET['mode']=='drop_banner'){
+      include_once('./res/defines.php');
+      include_once('./res/rb.php');
+
+      $type = $_GET['type'];
+      if($type != 'left' && $type != 'right'){
+        die(ADMIN_ERROR_MSG);
+      }
+
+      $user = $_POST['username'];
+      $pass = $_POST['password'];
+
+      R::setup( 'mysql:host=localhost;dbname='.DB_NAME, MYSQL_USERNAME, MYSQL_PASSWORD );
+      if(!R::testConnection()){
+        die(ADMIN_ERROR_MSG);
+      }
+
+      $users = R::getAll( 'SELECT * FROM users' );
+      $users['count'] = count($users);
+      $access_granted = FALSE;
+
+      for($i=0; $i!=$users['count']; ++$i){
+        if($users[$i]['username'] == $user && $users[$i]['password'] == $pass){
+          $access_granted = TRUE;
+        }
+      }
+
+      if( !$access_granted ){
+        R::close();
+        die('<meta charset="utf-8"><pre>
+        Похоже, произошла ошибка. Возможные причины:
+        <ul><li>У вас недостаточно прав для этой операции</li>
+        <li>Пользователь с таким именем не существует</li>
+        <li>Имя и/или пароль нового пользователя слишком короткий</li>
+        <li>Имя и/или пароль нового пользоваьеля слишком длинный</li></ul>
+        Пожалуйста, повторите попытку
+
+        <a href="http://'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
+      }
+
+      R::exec('DELETE FROM announces WHERE type="'.$type.'"');
+
+      R::close();
+
       die('<meta charset="utf-8"><pre>
       Данные были успешно изменены!
       <a href="http://'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
