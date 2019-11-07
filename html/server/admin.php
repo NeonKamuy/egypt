@@ -39,8 +39,7 @@
 
       R::setup( 'mysql:host=localhost;dbname='.DB_NAME, MYSQL_USERNAME, MYSQL_PASSWORD );
       if(!R::testConnection()){
-        die('<meta charset="utf-8"><pre>Не удалось подключиться к базе данных. Пожалуйста, повторите попытку
-        <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
+        die(LOGIN_ERROR_MSG);
       }
 
       $users = R::getAll( 'SELECT * FROM users' );
@@ -53,8 +52,7 @@
         }
       }
       if(!$access_granted){
-        die('<meta charset="utf-8"><pre>Введенный логин и/или пароль неверен. Пожалуйста, повторите попытку
-        <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
+        die(LOGIN_ERROR_MSG);
       }
       $html = get_html_parts($user, $pass);
 
@@ -85,8 +83,7 @@
 
       R::setup( 'mysql:host=localhost;dbname='.DB_NAME, MYSQL_USERNAME, MYSQL_PASSWORD );
       if(!R::testConnection()){
-        die('<meta charset="utf-8"><pre>Не удалось подключиться к базе данных. Пожалуйста, повторите попытку
-        <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
+        die(LOGIN_ERROR_MSG);
       }
 
       $users = R::getAll( 'SELECT * FROM users' );
@@ -145,9 +142,7 @@
 
       R::setup( 'mysql:host=localhost;dbname='.DB_NAME, MYSQL_USERNAME, MYSQL_PASSWORD );
       if(!R::testConnection()){
-        die('<meta charset="utf-8"><pre>
-        Не удалось подключиться к базе данных. Пожалуйста, повторите попытку
-        <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>');
+        die(LOGIN_ERROR_MSG);
       }
 
       $users = R::getAll( 'SELECT * FROM users' );

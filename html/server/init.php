@@ -46,6 +46,8 @@
       define("MYSQL_USERNAME", "'.$user.'");
       define("MYSQL_PASSWORD", "'.$pass.'");
       define("DB_NAME", "'.DB_NAME.'");
+      define("LOGIN_ERROR_MSG", "<meta charset="utf-8"><pre>Произошла ошибка. Пожалуйста, повторите попытку
+      <a href="'.$_SERVER['SERVER_NAME'].'/admin">Вернуться</a>");
     ?>';
   $defines_file = fopen('./res/defines.php', 'w');
   if(!$defines_file){
