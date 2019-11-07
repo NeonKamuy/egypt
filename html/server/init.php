@@ -11,7 +11,7 @@
   }
 
   function drop_db_onerror($con){
-    mysqli_query($con, 'DROP DATABASE admin');
+    mysqli_query($con, 'DROP DATABASE '.DB_NAME);
     $error_message = mysqli_error($con);
     mysqli_close($con);
     return $error_message;
@@ -28,8 +28,8 @@
       mysqli_close($con);
   }
 
-  $sql = 'CREATE DATABASE admin';
-  if(!mysqli_query($con, $sql) || !mysqli_select_db($con, 'admin')){
+  $sql = 'CREATE DATABASE '.DB_NAME;
+  if(!mysqli_query($con, $sql) || !mysqli_select_db($con, DB_NAME)){
     $error_message = mysqli_error($con);
     mysqli_close($con);
     send_performance_error($error_message);
@@ -43,8 +43,8 @@
   }
 
   $php_defines = '<?php
-      define("DB_USER", "'.$user.'");
-      define("DB_PASSWORD", "'.$pass.'");
+      define("MYSQL_USERNAME", "'.$user.'");
+      define("MYSQL_PASSWORD", "'.$pass.'");
       define("DB_NAME", "'.DB_NAME.'");
     ?>';
   $defines_file = fopen('./res/defines.php', 'w');
