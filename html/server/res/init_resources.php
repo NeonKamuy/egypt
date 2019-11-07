@@ -32,8 +32,8 @@
   <h3> Панель администратора </h3>
   <span> Войдите в учетную запись, чтобы продолжить </span>
   <form method="GET" action="/server/admin.php">
-    <input type="text" placeholder="Логин" name="username" pattern="[A-Za-z0-9]+" title="латинские буквы и цифры" required="">
-    <input type="password" placeholder="Пароль" name="password" pattern="[A-Za-z0-9]+" title="латинские буквы и цифры" required="">
+    <input type="text" placeholder="Логин" name="username" pattern="[A-Za-z0-9]{3,25}" title="латинские буквы и цифры, от 3 до 25 символов" required="">
+    <input type="password" placeholder="Пароль" name="password" pattern="[A-Za-z0-9]{3,25}" title="латинские буквы и цифры, от 3 до 25 символов" required="">
     <input type="hidden" name="mode" value="login">
     <input type="submit" value="Войти">
   </form> </body></html>
@@ -50,8 +50,8 @@
     <h3> Инициализации панели администратора </h3>
     <span> Введите имя и пароль пользователя БД, чтобы продолжить </span>
     <form method="POST" action="/server/init.php">
-      <input type="text" placeholder="Логин" name="username" pattern="[A-Za-z0-9]+" title="латинские буквы и цифры" required="">
-      <input type="password" placeholder="Пароль" name="password" pattern="[A-Za-z0-9]+" title="латинские буквы и цифры" required="">
+      <input type="text" placeholder="Логин" name="username" pattern="[A-Za-z0-9]{1,}" title="латинские буквы и цифры" required="">
+      <input type="password" placeholder="Пароль" name="password" pattern="[A-Za-z0-9]{1,}" title="латинские буквы и цифры" required="">
       <input type="submit" value="Войти">
     </form>
 
@@ -64,7 +64,7 @@
     'CREATE TABLE users (username TEXT, password TEXT, id BIGINT NOT NULL AUTO_INCREMENT, PRIMARY KEY (id))',   // users with admin access
     'CREATE TABLE messages (data TEXT, id BIGINT NOT NULL AUTO_INCREMENT, PRIMARY KEY (id))',
     'CREATE TABLE orders (data TEXT, id BIGINT NOT NULL AUTO_INCREMENT, PRIMARY KEY (id))',
-    'CREATE TABLE announces (data TEXT, id BIGINT NOT NULL AUTO_INCREMENT, PRIMARY KEY (id))',
+    'CREATE TABLE announces (type TEXT, data TEXT, id BIGINT NOT NULL AUTO_INCREMENT, PRIMARY KEY (id))',
     'INSERT INTO users (username, password) VALUES (\'admin\', \'admin\')',
   );
   $create_table_queries['length'] = count($create_table_queries);
