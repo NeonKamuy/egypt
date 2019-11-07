@@ -33,7 +33,7 @@
           <input type="text" name="event_time" required="" placeholder="Время">
           <input type="text" name="event_title" required="" placeholder="Название мероприятия">
           <input type="text" name="event_page" required="" placeholder="Страница мероприятия">
-          <input type="button" onclick="set_banner(this)">
+          <input type="button" onclick="set_banner(this)" value="Установить">
         </div>
       ',
 
@@ -48,7 +48,7 @@
           <input type="text" name="event_time" required="" placeholder="Время">
           <input type="text" name="event_title" required="" placeholder="Название мероприятия">
           <input type="text" name="event_page" required="" placeholder="Страница мероприятия">
-          <input type="button" onclick="set_banner(this)">
+          <input type="button" onclick="set_banner(this)" value="Установить">
         </div>
       ',
     );
