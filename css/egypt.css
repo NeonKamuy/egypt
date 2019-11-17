@@ -458,7 +458,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 }
 .annotation_button:hover{
   background-color: white;
-  color: #212529;
+  color: #212529 !important;
   text-decoration: none;
 }
 .annotation_button:active{
