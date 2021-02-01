@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -7,29 +10,27 @@
 
   <title>Храмовый комплекс Тота-Маат</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bundle.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <span id="lazy-css"></span>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+    type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:700">
-
-  <!-- Custom styles for this template -->
-  <link href="css/egypt.min.css" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
 
   <!-- Navigation -->
-  <a id="pyramid_button_mob" onclick="show_navbar('pyramid')"> <img src="./img/nav-icon.png" width="30" height="30" > </a>   <!-- навигационная кнопка пирамидки в -sm -->
+  <a id="pyramid_button_mob" onclick="show_navbar('pyramid')"> <img loading="lazy" src="./img/nav-icon.png" width="30" height="30">
+  </a> <!-- навигационная кнопка пирамидки в -sm -->
 
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <a id="navigation_button_mob" onclick="show_navbar('main')"> <i class="fas fa-bars"></i> </a>    <!-- навигационная кнопка основной панели в -sm  -->
+    <a id="navigation_button_mob" onclick="show_navbar('main')"> <i class="fas fa-bars"></i> </a>
+    <!-- навигационная кнопка основной панели в -sm  -->
     <a class="navbar-brand navbar-brand-own" href="#" id='navbar_brand_own_sm'>Храмовый комплекс Тота-Маат</a>
     <a class="navbar-brand navbar-brand-own" href="#" id='navbar_brand_own_xs'>Храмовый комплекс</a>
 
@@ -73,16 +74,17 @@
 
           <li class="nav-item dropdown" id="pyramid_button">
             <a class="navbar-brand ml-md-5" data-toggle="dropdown">
-              <img src="./img/nav-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+              <img loading="lazy" src="./img/nav-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
             </a>
-            <div class="dropdown-menu" style="margin-left: -240px; overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
-             <a class="dropdown-item" href="#">История создания комплекса</a>
-             <a class="dropdown-item dropdown-toggle" onclick="add_elements(event)">Эзотуризм</a>
-             <a class="dropdown-item pyramid_nav_subdropdown">Ближайшие путешествия</a>
-             <a class="dropdown-item pyramid_nav_subdropdown">Отчеты о прошедших путешествиях</a>
-             <a class="dropdown-item" href="#">Артефакты</a>
-             <a class="dropdown-item" href="#">Статьи</a>
-           </div>
+            <div class="dropdown-menu" style="margin-left: -240px; overflow: hidden"
+              aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">История создания комплекса</a>
+              <a class="dropdown-item dropdown-toggle" onclick="add_elements(event)">Эзотуризм</a>
+              <a class="dropdown-item pyramid_nav_subdropdown">Ближайшие путешествия</a>
+              <a class="dropdown-item pyramid_nav_subdropdown">Отчеты о прошедших путешествиях</a>
+              <a class="dropdown-item" href="#">Артефакты</a>
+              <a class="dropdown-item" href="#">Статьи</a>
+            </div>
           </li>
         </ul>
       </div>
@@ -94,7 +96,11 @@
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in">Храмовый комплекс Тота-Маат</div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+          nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+          id est laborum.</p>
       </div>
     </div>
   </header>
@@ -124,7 +130,9 @@
         </div>
 
         <div class="col md-4 mx-2" id="main_carousel">
-          <div class="carousel_announce_wrap" style="background-image:url('./img/announces_carousel/banner1.jpg'); display: block">   <!-- Установить display:block только для первого баннера карусели, чтобы они не накладывались до обработки скриптом  -->
+          <div class="carousel_announce_wrap"
+            style="background-image:url('./img/announces_carousel/banner1.jpg'); display: block">
+            <!-- Установить display:block только для первого баннера карусели, чтобы они не накладывались до обработки скриптом  -->
             <div class="announce_annotation">
               <div class="annotation_description">
                 Тип мероприятия
@@ -198,7 +206,7 @@
             </div>
           </div>
         </div>
-    </div>
+      </div>
   </section>
 
   <!-- Структура комплекса -->
@@ -206,22 +214,31 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase"><img class='horus_eye_ico'>Структура комплекса</h2>
+          <h2 class="section-heading text-uppercase"><img loading="lazy" class='horus_eye_ico'>Структура комплекса</h2>
           <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
       </div>
       <div class="row text-center">
         <div class="col-md-4">
-          <a href="#" class="heading_alias"><h4 class="service-heading">Пирамида Тота-Маат</h4></a>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <a href="#" class="heading_alias">
+            <h4 class="service-heading">Пирамида Тота-Маат</h4>
+          </a>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto
+            quo inventore harum ex magni, dicta impedit.</p>
         </div>
         <div class="col-md-4">
-          <a href="#" class="heading_alias"><h4 class="service-heading">Храм Исиды</h4></a>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <a href="#" class="heading_alias">
+            <h4 class="service-heading">Храм Исиды</h4>
+          </a>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto
+            quo inventore harum ex magni, dicta impedit.</p>
         </div>
         <div class="col-md-4">
-          <a href="#" class="heading_alias"><h4 class="service-heading">Lounge Hall</h4></a>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <a href="#" class="heading_alias">
+            <h4 class="service-heading">Lounge Hall</h4>
+          </a>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto
+            quo inventore harum ex magni, dicta impedit.</p>
         </div>
       </div>
     </div>
@@ -232,70 +249,99 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase"><img class='horus_eye_ico'>Обучение и услуги</h2>
+          <h2 class="section-heading text-uppercase"><img loading="lazy" class='horus_eye_ico'>Обучение и услуги</h2>
           <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
       </div>
 
       <div class="row learning-et-services-row">
         <div class="col-md-4">
-          <a href="#" class="heading_alias"><h4 class="service-heading">Лекции/семинары внутри комплекса</h4></a>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <a href="#" class="heading_alias">
+            <h4 class="service-heading">Лекции/семинары внутри комплекса</h4>
+          </a>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto
+            quo inventore harum ex magni, dicta impedit.</p>
         </div>
         <div class="col-md-4">
-          <a href="#" class="heading_alias"><h4 class="service-heading">Ритуалы</h4></a>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <a href="#" class="heading_alias">
+            <h4 class="service-heading">Ритуалы</h4>
+          </a>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto
+            quo inventore harum ex magni, dicta impedit.</p>
         </div>
         <div class="col-md-4">
-          <a href="#" class="heading_alias"><h4 class="service-heading">Online лекции/семинары</h4></a>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <a href="#" class="heading_alias">
+            <h4 class="service-heading">Online лекции/семинары</h4>
+          </a>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto
+            quo inventore harum ex magni, dicta impedit.</p>
         </div>
         <div class="col-md-4">
-          <a href="#" class="heading_alias"><h4 class="service-heading">Индивидуальное обучение</h4></a>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <a href="#" class="heading_alias">
+            <h4 class="service-heading">Индивидуальное обучение</h4>
+          </a>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto
+            quo inventore harum ex magni, dicta impedit.</p>
         </div>
         <div class="col-md-4">
-          <a href="#" class="heading_alias"><h4 class="service-heading">Аренда помещений комплекса</h4></a>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <a href="#" class="heading_alias">
+            <h4 class="service-heading">Аренда помещений комплекса</h4>
+          </a>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto
+            quo inventore harum ex magni, dicta impedit.</p>
         </div>
         <div class="col-md-12">
-          <a href="#" class="heading_alias"><h3 class="service-heading mt-5 mb-4">Эзотерические услуги</h3></a>
+          <a href="#" class="heading_alias">
+            <h3 class="service-heading mt-5 mb-4">Эзотерические услуги</h3>
+          </a>
 
-            <h6>Диагностика физического тела, тонких тел, в том числе по фотографии</h6>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  </p>
-            <button class="learn-more">
-              <div class="circle">
-                <span class="icon arrow"></span>
-              </div>
-              <p class="button-text">Заказать услугу</p>
-            </button>
+          <h6>Диагностика физического тела, тонких тел, в том числе по фотографии</h6>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. </p>
+          <button class="learn-more">
+            <div class="circle">
+              <span class="icon arrow"></span>
+            </div>
+            <p class="button-text">Заказать услугу</p>
+          </button>
 
-            <h6>Чистка родового канала</h6>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  </p>
-            <button class="learn-more">
-              <div class="circle">
-                <span class="icon arrow"></span>
-              </div>
-              <p class="button-text">Заказать услугу</p>
-            </button>
+          <h6>Чистка родового канала</h6>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. </p>
+          <button class="learn-more">
+            <div class="circle">
+              <span class="icon arrow"></span>
+            </div>
+            <p class="button-text">Заказать услугу</p>
+          </button>
 
-            <h6>Чистка квартир</h6>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  </p>
-            <button class="learn-more">
-              <div class="circle">
-                <span class="icon arrow"></span>
-              </div>
-              <p class="button-text">Заказать услугу</p>
-            </button>
+          <h6>Чистка квартир</h6>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. </p>
+          <button class="learn-more">
+            <div class="circle">
+              <span class="icon arrow"></span>
+            </div>
+            <p class="button-text">Заказать услугу</p>
+          </button>
 
-            <h6>Кармическое целительство</h6>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  </p>
-            <button class="learn-more mb-0">
-              <div class="circle">
-                <span class="icon arrow"></span>
-              </div>
-              <p class="button-text">Заказать услугу</p>
-            </button>
+          <h6>Кармическое целительство</h6>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. </p>
+          <button class="learn-more mb-0">
+            <div class="circle">
+              <span class="icon arrow"></span>
+            </div>
+            <p class="button-text">Заказать услугу</p>
+          </button>
         </div>
       </div>
 
@@ -307,21 +353,25 @@
     <div class="container">
       <div class="row speech-bubble-row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase"><img class='horus_eye_ico'>Отзывы о работе в комплексе</h2>
+          <h2 class="section-heading text-uppercase"><img loading="lazy" class='horus_eye_ico'>Отзывы о работе в комплексе</h2>
           <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
       </div>
 
       <div class="row speech-bubble-row">
         <div class="speech-bubble-left">
-          <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</h1>
-        	<h2>&mdash; Customer Name</h2>
+          <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat</h1>
+          <h2>&mdash; Customer Name</h2>
         </div>
       </div>
 
       <div class="row speech-bubble-row">
         <div class="speech-bubble-right">
-          <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</h1>
+          <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat</h1>
           <h2>&mdash; Customer Name</h2>
         </div>
       </div>
@@ -344,28 +394,33 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <input class="form-control" id="name" type="text" placeholder="Ваше имя" required="required" data-validation-required-message="Пожалуйста, введите имя">
+                  <input class="form-control" id="name" type="text" placeholder="Ваше имя" required="required"
+                    data-validation-required-message="Пожалуйста, введите имя">
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" id="email" type="email" placeholder="Ваш Email" required="required" data-validation-required-message="Пожалуйста, введите email ">
+                  <input class="form-control" id="email" type="email" placeholder="Ваш Email" required="required"
+                    data-validation-required-message="Пожалуйста, введите email ">
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" id="phone" type="tel" placeholder="Ваш номер телефона" required="required" data-validation-required-message="Пожалуйста, введите номер телефона">
+                  <input class="form-control" id="phone" type="tel" placeholder="Ваш номер телефона" required="required"
+                    data-validation-required-message="Пожалуйста, введите номер телефона">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <textarea class="form-control" id="message" placeholder="Ваше сообщение" required="required" data-validation-required-message="Пожалуйста, введите сообщение"></textarea>
+                  <textarea class="form-control" id="message" placeholder="Ваше сообщение" required="required"
+                    data-validation-required-message="Пожалуйста, введите сообщение"></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div class="clearfix"></div>
               <div class="col-lg-12 text-center">
                 <div id="success"></div>
-                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Отправить сообщение</button>
+                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Отправить
+                  сообщение</button>
               </div>
             </div>
           </form>
@@ -419,14 +474,7 @@
     </div>
   </footer>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-
-  <script src="js/bundle.min.js"></script>
+  <script src="js/bundle.min.js"></script>>
 </body>
+
 </html>

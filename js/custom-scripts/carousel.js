@@ -5,7 +5,7 @@ window.addEventListener('load', ()=>{
   }
 })
 
-var carousel = {
+const carousel = {
   'init' : function(carouselContainerId, carouselCardsClass){
     carousel.container = document.getElementById(carouselContainerId);    // родительский контейнер, в котором показываются элементы карусели
     carousel.elems =  carousel.container.getElementsByClassName(carouselCardsClass);      // все элементы (слайды) карусели
